@@ -2,7 +2,8 @@ package main;
 
 /*
  * Test class for construction of Discrete Cosine Transformation coefficients as used in JPEG compression
- * Uses the table in the example provided on Wikipedia to test that each step returns as it should
+ * Uses the table in the example provided on Wikipedia to test that each step returns as it should.
+ * This code is merely for testing purposes and is not efficient.
  */
 
 public class DCTCalculator {
@@ -87,7 +88,7 @@ public class DCTCalculator {
 			}
 
 		}
-		
+		System.out.println();
 		System.out.println("*****************************************************************");
 		System.out.println("-----------------------------------------------------------------");
 		System.out.println("*****************************************************************");
@@ -105,6 +106,21 @@ public class DCTCalculator {
 			}
 		}
 		
+		System.out.println();
+		System.out.println("*****************************************************************");
+		System.out.println("-----------------------------------------------------------------");
+		System.out.println("*****************************************************************");
+		
+		// Now returning the value to it's unquantised form to see the difference
+		
+		System.out.println();
+		for(int c=0; c<DCT.length;c++){
+			System.out.println();
+			for(int d=0;d<DCT.length;d++){
+				DCT[c][d] = QDCT[c][d]*quant[c][d];
+				System.out.print(DCT[c][d] + ", ");
+			}
+		}
 	}
 
 }
